@@ -33,7 +33,7 @@ mkdir homer_data && cd homer_data
 wget http://homer.ucsd.edu/homer/configureHomer.pl
 perl ./configureHomer.pl install hg38 # this will download "hg38" and "human" annotation packages
 
-# Optional: archive and compress archive for transfer to eg HPC without internet access
+# Optional: archive and compress for transfer to eg HPC without internet access
 cd .. && tar -czvf homer_data.tar.gz homer_data
 # Transfer to final location and extract
 tar -xzvf homer_data.tar.gz
@@ -62,7 +62,7 @@ docker build -t singularity .
 docker run --rm -it -v $PWD:$PWD -w $PWD singularity singularity
 ```
 
-### 5. Save Docker image as tar and convert to sif
+### 5. Save Docker image as tar and convert to sif (using singularity run from Docker container)
 ```bash
 cd $WORKING_DIR
 docker save <Image_ID> -o homer-docker.tar # = IMAGE_ID of homer image
